@@ -1,10 +1,11 @@
 <script lang="ts">
   import { IconCampfire } from "@tabler/icons-svelte";
   import { onMount } from "svelte";
+  import { convertFileSrc } from "@tauri-apps/api/tauri";
 
   export let volume: number;
 
-  let fire = new Audio("assets/engine/effects/fire.mp3");
+  let fire = new Audio(convertFileSrc("assets/engine/effects/fire.mp3"));
   let isFire = false;
 
   function toggleStorm() {

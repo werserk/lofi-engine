@@ -2,10 +2,11 @@
   import { IconCloudRain } from "@tabler/icons-svelte";
   import { onMount } from "svelte";
   import RainAnimation from "./RainAnimation.svelte";
+  import { convertFileSrc } from "@tauri-apps/api/tauri";
 
   export let volume: number;
 
-  let rain = new Audio("assets/engine/effects/rain.mp3");
+  let rain = new Audio(convertFileSrc("assets/engine/effects/rain.mp3"));
   let isRaining = false;
 
   function toggleRain() {

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { IconChevronDown } from "@tabler/icons-svelte";
   import TrackListItem from "./TrackListItem.svelte";
+  import { convertFileSrc } from "@tauri-apps/api/tauri";
 
   let tracks = [
     {
@@ -83,7 +84,7 @@
         tracks[i - 1].isPlaying = !tracks[i - 1].isPlaying;
         if (tracks[i - 1].isPlaying) {
           const audio = new Audio(
-            `assets/engine/tracks/${tracks[i - 1].track}`
+            convertFileSrc(`assets/engine/tracks/${tracks[i - 1].track}`)
           );
           audio.play();
           audio.loop = true;

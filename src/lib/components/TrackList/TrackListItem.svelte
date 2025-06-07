@@ -1,5 +1,6 @@
 <script lang="ts">
   import { afterUpdate, onMount } from "svelte";
+  import { convertFileSrc } from "@tauri-apps/api/tauri";
 
   export let setMeVisible;
   export let activeAudios = [];
@@ -43,7 +44,9 @@
   }
 
   function playTrack() {
-    const audio = new Audio(`assets/engine/tracks/${track.track}`);
+    const audio = new Audio(
+      convertFileSrc(`assets/engine/tracks/${track.track}`)
+    );
     audio.volume = volume;
     audio.play();
     audio.loop = true;
