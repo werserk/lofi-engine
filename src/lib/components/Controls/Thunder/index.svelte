@@ -1,10 +1,11 @@
 <script lang="ts">
   import { IconCloudStorm } from "@tabler/icons-svelte";
   import { onMount } from "svelte";
+  import { convertFileSrc } from "@tauri-apps/api/tauri";
 
   export let volume: number;
 
-  let storm = new Audio("assets/engine/effects/thunder.mp3");
+  let storm = new Audio(convertFileSrc("assets/engine/effects/thunder.mp3"));
   let isStorming = false;
 
   function toggleStorm() {

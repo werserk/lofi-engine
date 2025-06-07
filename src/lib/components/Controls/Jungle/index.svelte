@@ -1,10 +1,11 @@
 <script lang="ts">
   import { IconTrees } from "@tabler/icons-svelte";
   import { onMount } from "svelte";
+  import { convertFileSrc } from "@tauri-apps/api/tauri";
 
   export let volume: number;
 
-  let jungle = new Audio("assets/engine/effects/jungle.mp3");
+  let jungle = new Audio(convertFileSrc("assets/engine/effects/jungle.mp3"));
   let isActive = false;
 
   function toggleSound() {
